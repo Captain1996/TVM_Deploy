@@ -1,0 +1,3 @@
+*.docx
+/NCNN/insightface_R50/models/ncnn/R50-0000.bin
+/Caffe/insightface/models/R50-0000.caffemodel

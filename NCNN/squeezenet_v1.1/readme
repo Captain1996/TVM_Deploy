@@ -1,0 +1,8 @@
+1.
+caffe
+$ ~/caffe/build/tools/upgrade_net_proto_text mobilenet_deploy.prototxt mobilenet_deploy_new.prototxt
+$ ~/caffe/build/tools/upgrade_net_proto_binary mobilenet.caffemodel mobilenet_new.caffemodel
+
+2.
+ncnn 
+./caffe2ncnn mobilenet_deploy_new.prototxt mobilenet_new.caffemodel mobilenet.param mobilenet.bin
