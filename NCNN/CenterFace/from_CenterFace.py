@@ -45,7 +45,7 @@ target = 'llvm'
 # Parse onnx model and convert into Relay computation graph
 mod, params = relay.frontend.from_onnx(onnx_model, shape_dict)
 
-with relay.build_config(opt_level=1):
+with relay.build_config(opt_level=3):
     graph, lib, params = relay.build(mod,
                                          target,
                                          params=params)

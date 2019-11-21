@@ -46,7 +46,7 @@ target = 'llvm'
 # Parse onnx model and convert into Relay computation graph
 mod, params = relay.frontend.from_onnx(onnx_model, shape_dict)
 
-with relay.build_config(opt_level=1):
+with relay.build_config(opt_level=3):
     graph, lib, params = relay.build(mod,
                                          target,
                                          params=params)
@@ -75,7 +75,7 @@ end = timer()
 timeuse = end - start
 print('warmup time' , timeuse_warmup)
 print('time' , (timeuse - timeuse_warmup)/8.0)
-print(tvm_output)
+print(tvm_output.shape)
 
 path_lib = "Face-Detector-1MB-with-landmark_deploy_lib.so"
 lib.export_library(path_lib)
